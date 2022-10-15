@@ -8,8 +8,8 @@ generator client {
   binaryTargets = "native"
 }
 
-model UserExample {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Entry {
+  id    String @id @default(uuid())
+  dbId  String
+  dbSrc String
 }
