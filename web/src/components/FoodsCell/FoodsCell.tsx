@@ -1,5 +1,6 @@
 import type { FoodsQuery } from 'types/graphql'
 
+import { routes, Link } from '@redwoodjs/router'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 import Food from 'src/components/Food'
@@ -12,10 +13,8 @@ export const QUERY = gql`
       protein
       fat
       carbohydrate
-      type
       amount
       unit
-      dbSource
     }
   }
 `
@@ -32,7 +31,9 @@ export const Success = ({ foods }: CellSuccessProps<FoodsQuery>) => {
   return (
     <>
       {foods.map((food) => (
-        <Food key={food.id} food={food} summary />
+        <Link to={routes.food({ id: food.id })} key={food.id}>
+          <Food food={food} summary />
+        </Link>
       ))}
     </>
   )
