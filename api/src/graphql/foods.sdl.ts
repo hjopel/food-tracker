@@ -8,6 +8,11 @@ export const schema = gql`
   type FoodResult {
     fdcId: Int
     description: String
+    publishedDate: String
+    brandOwner: String
+    brandName: String
+    ingredients: String
+    foodCategory: String
     foodNutrients: [FoodNutrients]
   }
   type FoodQueryResult {
