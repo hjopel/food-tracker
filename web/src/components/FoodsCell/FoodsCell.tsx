@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import type { FoodQuery } from 'types/graphql'
 
 import { routes, Link } from '@redwoodjs/router'
@@ -35,12 +37,19 @@ export const Failure = ({ error }: CellFailureProps) => (
 
 export const Success = ({ foods }: CellSuccessProps<FoodsQuery>) => {
   console.log(foods.foods)
+  const [opened, setOpened] = useState()
+  console.log('opened', opened)
   return (
     <>
       {foods.foods.map((food) => (
-        // <Link to={routes.food({ id: food.id })} key={food.id}>
-        <Food food={food} summary key={food.fdcId} />
-        // </Link>
+        <div
+          onClick={() =>
+            setOpened(opened === food.fdcId ? undefined : food.fdcId)
+          }
+          key={food.fdcId}
+        >
+          <Food food={food} summary={opened !== food.fdcId} />
+        </div>
       ))}
     </>
   )

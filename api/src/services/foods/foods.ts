@@ -12,7 +12,6 @@ export const foods = async ({ query }: { query: string }) => {
     foods: json.foods,
     page: json.foodSearchCriteria.pageNumber,
   }
-  console.log(retVal)
   return {
     query,
     foods: json.foods,

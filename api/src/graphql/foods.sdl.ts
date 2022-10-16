@@ -14,11 +14,14 @@ export const schema = gql`
     ingredients: String
     foodCategory: String
     foodNutrients: [FoodNutrients]
+    foodCode: String
+    additionalDescription: String
   }
   type FoodQueryResult {
     query: String!
     foods: [FoodResult]
     page: Int
+    totalHits: Int
   }
 
   type Query {
