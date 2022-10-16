@@ -22,6 +22,6 @@ export const schema = gql`
   }
 
   type Query {
-    getFoods(query: String!): FoodQueryResult! @skipAuth
+    foods(query: String!): FoodQueryResult! @skipAuth
   }
 `

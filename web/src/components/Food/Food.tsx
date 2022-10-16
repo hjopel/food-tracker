@@ -2,7 +2,7 @@ import { StarIcon } from '@heroicons/react/24/outline'
 
 interface Props {
   food: {
-    name: string
+    description: string
     dbSource: string
     protein: number
     fat: number
@@ -18,7 +18,7 @@ const Food = ({ food, summary }: Props) => {
   return (
     <div className="p-6">
       <div className="justfiy-center flex w-full flex-col text-center">
-        <h2 className="text-4xl font-bold">{food.name}</h2>
+        <h2 className="text-4xl font-bold">{food.description}</h2>
         <span>
           {food.amount}
           {food.unit}

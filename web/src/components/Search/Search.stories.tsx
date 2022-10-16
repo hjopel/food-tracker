@@ -1300,7 +1300,7 @@ export const search = () => {
       },
     ],
   }
-  return <Search query="banana" results={results} />
+  return <Search />
 }
 
 export default {
