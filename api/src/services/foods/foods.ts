@@ -1,6 +1,6 @@
 import { fetch } from 'cross-undici-fetch'
 
-export const foods = async ({ query }: { query: string }) => {
+export const getFoods = async ({ query }: { query: string }) => {
   const response = await fetch(
     ` https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${
       process.env.FOOD_DB_KEY

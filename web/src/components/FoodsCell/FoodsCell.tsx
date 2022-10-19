@@ -9,7 +9,7 @@ import Food from 'src/components/Food'
 
 export const QUERY = gql`
   query FoodsQuery($query: String!) {
-    foods(query: $query) {
+    getFoods(query: $query) {
       foods {
         fdcId
         description
@@ -35,15 +35,15 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error?.message}</div>
 )
 
-export const Success = ({ foods }: CellSuccessProps<FoodsQuery>) => {
+export const Success = ({ getFoods }: CellSuccessProps<FoodsQuery>) => {
   const [opened, setOpened] = useState()
   return (
     <>
-      {foods.foods.map((food) => (
+      {getFoods.foods.map((food) => (
         <div
-          onClick={() =>
-            setOpened(opened === food.fdcId ? undefined : food.fdcId)
-          }
+          // onClick={() =>
+          //   setOpened(opened === food.fdcId ? undefined : food.fdcId)
+          // }
           key={food.fdcId}
         >
           <Food food={food} summary={opened !== food.fdcId} />
