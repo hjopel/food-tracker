@@ -1,14 +1,14 @@
 import { render } from '@redwoodjs/testing/web'
 
-import Search from './Search'
+import FoodPreview from './FoodPreview'
 
 //   Improve this test with help from the Redwood Testing Doc:
 //    https://redwoodjs.com/docs/testing#testing-components
 
-describe('Search', () => {
+describe('FoodPreview', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<Search />)
+      render(<FoodPreview />)
     }).not.toThrow()
   })
 })

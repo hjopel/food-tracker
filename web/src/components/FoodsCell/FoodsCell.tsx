@@ -1,15 +1,16 @@
 import { useState } from 'react'
 
-import type { FoodQuery } from 'types/graphql'
+import type { FoodQueryResult } from 'types/graphql'
 
 import { routes, Link } from '@redwoodjs/router'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
+import { useQuery } from '@redwoodjs/web'
 
-import Food from 'src/components/Food'
+import FoodPreview from '../FoodPreview/FoodPreview'
 
 export const QUERY = gql`
   query FoodsQuery($query: String!) {
-    foods(query: $query) {
+    getFoods(query: $query) {
       foods {
         fdcId
         description
@@ -21,8 +22,6 @@ export const QUERY = gql`
           value
         }
       }
-      page
-      query
     }
   }
 `
@@ -35,18 +34,18 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error?.message}</div>
 )
 
-export const Success = ({ foods }: CellSuccessProps<FoodsQuery>) => {
-  const [opened, setOpened] = useState()
+export const Success = ({ getFoods }: CellSuccessProps<FoodQueryResult>) => {
+  console.log(getFoods)
   return (
     <>
-      {foods.foods.map((food) => (
+      {getFoods.foods.map((food) => (
         <div
-          onClick={() =>
-            setOpened(opened === food.fdcId ? undefined : food.fdcId)
-          }
+          // onClick={() =>
+          //   setOpened(opened === food.fdcId ? undefined : food.fdcId)
+          // }
           key={food.fdcId}
         >
-          <Food food={food} summary={opened !== food.fdcId} />
+          <FoodPreview food={food} />
         </div>
       ))}
     </>
