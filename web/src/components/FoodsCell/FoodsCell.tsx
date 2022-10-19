@@ -4,6 +4,7 @@ import type { FoodQueryResult } from 'types/graphql'
 
 import { routes, Link } from '@redwoodjs/router'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
+import { useQuery } from '@redwoodjs/web'
 
 import FoodPreview from '../FoodPreview/FoodPreview'
 
