@@ -36,9 +36,7 @@ export const Failure = ({ error }: CellFailureProps) => (
 )
 
 export const Success = ({ foods }: CellSuccessProps<FoodsQuery>) => {
-  console.log(foods.foods)
   const [opened, setOpened] = useState()
-  console.log('opened', opened)
   return (
     <>
       {foods.foods.map((food) => (

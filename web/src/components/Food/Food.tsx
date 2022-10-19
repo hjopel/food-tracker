@@ -4,9 +4,6 @@ interface Props {
   food: {
     description: string
     dbSource: string
-    protein: number
-    fat: number
-    carbohydrate: number
     type: 'meat' | 'fish' | 'vegetable' | 'fruit' | 'other'
     amount: number
     unit: 'g' | 'oz' | 'kg' | 'lbs' | 'unit'
@@ -15,9 +12,10 @@ interface Props {
 }
 
 const Food = ({ food, summary }: Props) => {
+  if (!summary) console.log(food)
   return (
     <div className="p-6">
-      <div className="justfiy-center flex w-full flex-col text-center">
+      <div className="flex w-full flex-col justify-center text-center">
         <h2 className="text-4xl font-bold">{food.description}</h2>
         <span>
           {food.amount}
@@ -29,15 +27,15 @@ const Food = ({ food, summary }: Props) => {
           <div className="flex justify-between">
             <div className="flex w-full flex-col items-center justify-center">
               Protein
-              <p>{food.protein}</p>
+              <p>{'food.protein'}</p>
             </div>
             <div className="flex w-full flex-col items-center justify-center">
               Fats
-              <p>{food.fat}</p>
+              <p>{'food.fat'}</p>
             </div>
             <div className="flex w-full flex-col items-center justify-center">
               Carbohydrates
-              <p>{food.carbohydrate}</p>
+              <p>{'food.carbohydrate'}</p>
             </div>
           </div>
           <div className="flex justify-center gap-4">
